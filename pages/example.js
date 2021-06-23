@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import { Layout, Card, Page, TextStyle } from "@shopify/polaris";
-class Index extends Component {
+class Example extends Component {
   render() {
     return(
   <Page>
     <Layout>
-      <Layout.AnnotatedSection title="Example Title" description="This is example discription">
+      <Layout.AnnotatedSection title="Example Page Title" description="This is example Page discription">
         <Card>
-          <div>Example</div>
+          <div><TextStyle variation="strong">Example Page</TextStyle></div>
         </Card>
       </Layout.AnnotatedSection>
     </Layout>
@@ -16,4 +16,4 @@ class Index extends Component {
   };
 };
 
-export default Index;
+export default Example;
