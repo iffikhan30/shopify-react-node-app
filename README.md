@@ -13,11 +13,11 @@ Install react
 
 Add .env file 
 
-SHOPIFY_API_KEY='********************************' <br/>
-SHOPIFY_API_SECRET='********************************'<br/>
+SHOPIFY_API_KEY='-------------' <br/>
+SHOPIFY_API_SECRET='----------'<br/>
 SHOPIFY_API_SCOPES=read_products,write_products<br/>
-SHOPIFY_APP_URL='https://********************************.ngrok.io'<br/>
-HOST='https://********************************.ngrok.io.********************************.myshopify.com'<br/>
+SHOPIFY_APP_URL='https://----------.ngrok.io'<br/>
+HOST='https://----------.ngrok.io.------.myshopify.com'<br/>
 
 ----------
 
