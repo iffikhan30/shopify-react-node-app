@@ -1,19 +1,46 @@
 import React, {Component} from 'react';
-import { Layout, Card, Page, TextStyle } from "@shopify/polaris";
-class Index extends Component {
-  render() {
-    return(
-  <Page>
-    <Layout>
-      <Layout.AnnotatedSection title="Example Title" description="This is example discription">
-        <Card>
-          <div>Example</div>
-        </Card>
-      </Layout.AnnotatedSection>
-    </Layout>
-  </Page>
-    );
-  };
-};
+import { EmptyState,Layout, Card, Page, TextStyle } from "@shopify/polaris";
+import { ResourcePicker, TitleBar } from '@shopify/app-bridge-react';
+const img = 'https://cdn.shopify.com/s/files/1/0757/9955/files/empty-state.svg';
 
+class Index extends React.Component {
+  state = { open: false };
+  render() {
+    return (
+      <Page>
+        <TitleBar
+          title="Sample App"
+          primaryAction={{
+            content: 'Select products',
+            onAction: () => this.setState({ open: true }),
+          }}
+        />
+        <ResourcePicker
+          resourceType="Product"
+          showVariants={false}
+          open={this.state.open}
+          onSelection={(resources) => this.handleSelection(resources)}
+          onCancel={() => this.setState({ open: false })}
+        />
+        <Layout>
+          <EmptyState
+            heading="Select products to start"
+            action={{
+              content: 'Select products',
+              onAction: () => this.setState({ open: true }),
+            }}
+            image={img}
+          >
+            <p>Select products and change their price temporarily</p>
+          </EmptyState>
+        </Layout>
+      </Page>
+    );
+  }
+  handleSelection = (resources) => {
+    this.setState({ open: false });
+    const idsFromResources = resources.selection.map((product) => product.id);
+    console.log(idsFromResources);
+  };
+}
 export default Index;
